@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2024 at 03:30 PM
+-- Generation Time: Jun 23, 2024 at 08:02 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,7 +42,14 @@ CREATE TABLE `tblbooks` (
 --
 
 INSERT INTO `tblbooks` (`bookid`, `title`, `author`, `total_copies`, `available_copies`, `publisher`, `published_year`) VALUES
-(1, 'djcndnvndn', 'dvdvd', 3243, 34, 'fvrvr', '2027');
+(1, 'PHP & MySQL', 'Jon Duckett', 10, 10, 'Wiley', '2022'),
+(2, 'JavaScript and jQuery', 'Jon Duckett', 8, 8, 'Wiley', '2014'),
+(3, 'HTML &CSS', 'Jon Duckett', 12, 12, 'John Wiley and Sons', '2011'),
+(4, 'Professional C#', 'Christian Nagel', 8, 8, '‎Wrox Press', '2021'),
+(5, 'More Effective C#', 'Bill Wagner', 9, 9, 'Addison-Wesley Professional', '2004'),
+(6, 'Clean Code', 'Robert C Martin', 10, 10, 'Prentice Hall', '2008'),
+(7, 'The Pragmatic Programmer', 'Andy Hunt', 8, 8, 'Addison-Welsey', '1999'),
+(8, 'Thinking in Java', 'Bruce Eckel', 10, 10, 'Prentice Hall', '1998');
 
 -- --------------------------------------------------------
 
@@ -64,7 +71,12 @@ CREATE TABLE `tblissue` (
 --
 
 INSERT INTO `tblissue` (`Issue_ID`, `MemberId`, `MemberName`, `bookId`, `bookTitle`, `IssueDate`) VALUES
-(1, 1, 'werty', 4, 'qwerty', '2024-06-11');
+(1, 2, 'Harry', 1, 'PHP & MySQL', '2024-02-02'),
+(2, 4, 'Smith', 3, 'HTML &CSS', '2024-02-05'),
+(3, 1, 'John', 2, 'JavaScript and jQuery', '2024-02-08'),
+(4, 5, 'Priya', 7, 'The Pragmatic Programmer', '2024-02-10'),
+(5, 3, 'Pooja', 5, 'More Effective C#', '2024-02-19'),
+(6, 6, 'James', 4, 'Professional C#', '2024-02-22');
 
 -- --------------------------------------------------------
 
@@ -87,7 +99,13 @@ CREATE TABLE `tblmember` (
 --
 
 INSERT INTO `tblmember` (`MemberId`, `Name`, `NIC`, `Gender`, `Contact`, `Email`, `Date_Joined`) VALUES
-(3, 'qwert', 'mnbvcxz', 'Male', 576767, 'asdfgh', '2024-06-10');
+(1, 'John', '123456789V', 'Male', 771112233, 'john@gmail.com', '2024-01-01'),
+(2, 'Harry', '234567891V', 'Male', 772223344, 'harry@gmail.com', '2024-01-01'),
+(3, 'Pooja', '345678912V', 'Female', 773334455, 'pooja@gmail.com', '2024-01-02'),
+(4, 'Smith', '456789123V', 'Male', 774445566, 'smith@gmail.com', '2024-01-15'),
+(5, 'Priya', '567891234V', 'Female', 775556677, 'priya@gmail.com', '2024-01-16'),
+(6, 'James', '678912345V', 'Male', 776667788, 'james@gmail.com', '2024-01-17'),
+(7, 'Kumar', '789123456V', 'Male', 777778899, 'kumar@gmail.com', '2024-02-06');
 
 -- --------------------------------------------------------
 
@@ -110,8 +128,12 @@ CREATE TABLE `tblreturn` (
 --
 
 INSERT INTO `tblreturn` (`Return_Id`, `MemberId`, `MemberName`, `bookId`, `bookTitle`, `IssueDate`, `ReturnDate`) VALUES
-(7, 56, 'werty', 7, 'qwerty', '2024-06-09', '2024-06-11'),
-(9, 10, 'qwert', 8, 'qwerty', '2024-06-09', '2024-06-09');
+(1, 2, 'Harry', 1, 'PHP & MySQL', '2024-02-02', '2024-02-09'),
+(2, 4, 'Smith', 3, 'HTML &CSS', '2024-02-05', '2024-02-10'),
+(3, 1, 'John', 2, 'JavaScript and jQuery', '2024-02-08', '2024-02-15'),
+(4, 5, 'Priya', 7, 'The Pragmatic Programmer', '2024-01-10', '2024-02-18'),
+(5, 3, 'Pooja', 5, 'More Effective C#', '2024-02-19', '2024-02-25'),
+(6, 6, 'James', 4, 'Professional C#', '2024-02-22', '2024-03-09');
 
 -- --------------------------------------------------------
 
@@ -127,13 +149,6 @@ CREATE TABLE `tblstaff` (
   `Email` varchar(100) NOT NULL,
   `Joined_Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tblstaff`
---
-
-INSERT INTO `tblstaff` (`Staff_ID`, `Staffname`, `NIC`, `Contact`, `Email`, `Joined_Date`) VALUES
-(1, 'qwert', 'dvfvfv2', 231122, 'gmail', '2024-06-11');
 
 -- --------------------------------------------------------
 
@@ -214,25 +229,25 @@ ALTER TABLE `tblbooks`
 -- AUTO_INCREMENT for table `tblissue`
 --
 ALTER TABLE `tblissue`
-  MODIFY `Issue_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Issue_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tblmember`
 --
 ALTER TABLE `tblmember`
-  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblreturn`
 --
 ALTER TABLE `tblreturn`
-  MODIFY `Return_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Return_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tblstaff`
 --
 ALTER TABLE `tblstaff`
-  MODIFY `Staff_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Staff_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -262,3 +277,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
