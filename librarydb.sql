@@ -133,7 +133,7 @@ CREATE TABLE `tblstaff` (
 --
 
 INSERT INTO `tblstaff` (`Staff_ID`, `Staffname`, `NIC`, `Contact`, `Email`, `Joined_Date`) VALUES
-(1, 'sharaf', 'dvfvfv2', 231122, 'gmail', '2024-06-11');
+(1, 'qwert', 'dvfvfv2', 231122, 'gmail', '2024-06-11');
 
 -- --------------------------------------------------------
 
